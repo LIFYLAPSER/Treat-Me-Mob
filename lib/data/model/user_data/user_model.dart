@@ -1,4 +1,5 @@
 
+
 import 'package:hive_flutter/hive_flutter.dart';
 part 'user_model.g.dart';
 
@@ -15,12 +16,16 @@ class UserModel {
   final String email;
 
   @HiveField(3)
-  final int points;
+  final String password;
+
+  @HiveField(4)
+  final int? points;
 
   UserModel({
     required this.userId,
     required this.username,
     required this.email,
+    required this.password,
     required this.points,
   });
 
@@ -29,12 +34,14 @@ class UserModel {
     String? userId,
     String? username,
     String? email,
+    String? password,
     int? points,
   }) {
     return UserModel(
       userId: userId ?? this.userId,
       username: username ?? this.username,
       email: email ?? this.email,
+      password: password ?? this.password,
       points: points ?? this.points,
     );
   }
@@ -44,6 +51,7 @@ class UserModel {
         'userId': userId,
         'username': username,
         'email': email,
+        'password': password,
         'points': points,
       };
 
@@ -53,6 +61,7 @@ class UserModel {
       userId: json['userId'],
       username: json['username'],
       email: json['email'],
+      password: json['password'],
       points: json['points'],
     );
   }
