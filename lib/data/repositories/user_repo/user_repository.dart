@@ -6,5 +6,5 @@ abstract class UserRepository {
   Future<void> saveUser(UserModel user);
   Future<void> deleteUser();
   Future<void> updateUserPoints( int? points);
-  Future<int> getPoints();
+  Future<int?> getPoints();
 }

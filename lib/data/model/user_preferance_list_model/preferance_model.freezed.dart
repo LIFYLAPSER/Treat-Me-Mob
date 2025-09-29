@@ -23,7 +23,7 @@ mixin _$PreferanceModel {
   @HiveField(0)
   int get id => throw _privateConstructorUsedError;
   @HiveField(1)
-  int get percentage => throw _privateConstructorUsedError;
+  int get percentage => throw _privateConstructorUsedError; // 25, 50, 75, 100
   @HiveField(2)
   String get preferance => throw _privateConstructorUsedError;
   @HiveField(3)
@@ -157,6 +157,7 @@ class _$PreferanceModelImpl implements _PreferanceModel {
   @override
   @HiveField(1)
   final int percentage;
+// 25, 50, 75, 100
   @override
   @HiveField(2)
   final String preferance;
@@ -219,7 +220,7 @@ abstract class _PreferanceModel implements PreferanceModel {
   @override
   @HiveField(1)
   int get percentage;
-  @override
+  @override // 25, 50, 75, 100
   @HiveField(2)
   String get preferance;
   @override

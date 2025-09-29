@@ -24,6 +24,12 @@ mixin _$TasksModel {
   int get id => throw _privateConstructorUsedError;
   @HiveField(1)
   String get title => throw _privateConstructorUsedError;
+  @HiveField(4)
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @HiveField(5)
+  DateTime? get completedAt => throw _privateConstructorUsedError;
+  @HiveField(6)
+  int get preferanceId => throw _privateConstructorUsedError;
   @HiveField(2)
   String get description => throw _privateConstructorUsedError;
   @HiveField(3)
@@ -44,6 +50,9 @@ abstract class $TasksModelCopyWith<$Res> {
   $Res call(
       {@HiveField(0) int id,
       @HiveField(1) String title,
+      @HiveField(4) DateTime? createdAt,
+      @HiveField(5) DateTime? completedAt,
+      @HiveField(6) int preferanceId,
       @HiveField(2) String description,
       @HiveField(3) bool isCompleted});
 }
@@ -63,6 +72,9 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? createdAt = freezed,
+    Object? completedAt = freezed,
+    Object? preferanceId = null,
     Object? description = null,
     Object? isCompleted = null,
   }) {
@@ -75,6 +87,18 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      completedAt: freezed == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      preferanceId: null == preferanceId
+          ? _value.preferanceId
+          : preferanceId // ignore: cast_nullable_to_non_nullable
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -98,6 +122,9 @@ abstract class _$$TasksModelImplCopyWith<$Res>
   $Res call(
       {@HiveField(0) int id,
       @HiveField(1) String title,
+      @HiveField(4) DateTime? createdAt,
+      @HiveField(5) DateTime? completedAt,
+      @HiveField(6) int preferanceId,
       @HiveField(2) String description,
       @HiveField(3) bool isCompleted});
 }
@@ -115,6 +142,9 @@ class __$$TasksModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? createdAt = freezed,
+    Object? completedAt = freezed,
+    Object? preferanceId = null,
     Object? description = null,
     Object? isCompleted = null,
   }) {
@@ -127,6 +157,18 @@ class __$$TasksModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      completedAt: freezed == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      preferanceId: null == preferanceId
+          ? _value.preferanceId
+          : preferanceId // ignore: cast_nullable_to_non_nullable
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -145,6 +187,9 @@ class _$TasksModelImpl implements _TasksModel {
   const _$TasksModelImpl(
       {@HiveField(0) required this.id,
       @HiveField(1) required this.title,
+      @HiveField(4) this.createdAt,
+      @HiveField(5) this.completedAt,
+      @HiveField(6) required this.preferanceId,
       @HiveField(2) required this.description,
       @HiveField(3) required this.isCompleted});
 
@@ -158,6 +203,15 @@ class _$TasksModelImpl implements _TasksModel {
   @HiveField(1)
   final String title;
   @override
+  @HiveField(4)
+  final DateTime? createdAt;
+  @override
+  @HiveField(5)
+  final DateTime? completedAt;
+  @override
+  @HiveField(6)
+  final int preferanceId;
+  @override
   @HiveField(2)
   final String description;
   @override
@@ -166,7 +220,7 @@ class _$TasksModelImpl implements _TasksModel {
 
   @override
   String toString() {
-    return 'TasksModel(id: $id, title: $title, description: $description, isCompleted: $isCompleted)';
+    return 'TasksModel(id: $id, title: $title, createdAt: $createdAt, completedAt: $completedAt, preferanceId: $preferanceId, description: $description, isCompleted: $isCompleted)';
   }
 
   @override
@@ -176,6 +230,12 @@ class _$TasksModelImpl implements _TasksModel {
             other is _$TasksModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.completedAt, completedAt) ||
+                other.completedAt == completedAt) &&
+            (identical(other.preferanceId, preferanceId) ||
+                other.preferanceId == preferanceId) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.isCompleted, isCompleted) ||
@@ -184,8 +244,8 @@ class _$TasksModelImpl implements _TasksModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, description, isCompleted);
+  int get hashCode => Object.hash(runtimeType, id, title, createdAt,
+      completedAt, preferanceId, description, isCompleted);
 
   @JsonKey(ignore: true)
   @override
@@ -205,6 +265,9 @@ abstract class _TasksModel implements TasksModel {
   const factory _TasksModel(
       {@HiveField(0) required final int id,
       @HiveField(1) required final String title,
+      @HiveField(4) final DateTime? createdAt,
+      @HiveField(5) final DateTime? completedAt,
+      @HiveField(6) required final int preferanceId,
       @HiveField(2) required final String description,
       @HiveField(3) required final bool isCompleted}) = _$TasksModelImpl;
 
@@ -217,6 +280,15 @@ abstract class _TasksModel implements TasksModel {
   @override
   @HiveField(1)
   String get title;
+  @override
+  @HiveField(4)
+  DateTime? get createdAt;
+  @override
+  @HiveField(5)
+  DateTime? get completedAt;
+  @override
+  @HiveField(6)
+  int get preferanceId;
   @override
   @HiveField(2)
   String get description;

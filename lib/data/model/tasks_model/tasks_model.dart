@@ -10,6 +10,9 @@ abstract class TasksModel with _$TasksModel{
   const factory TasksModel({
    @HiveField(0) required int id,
    @HiveField(1) required String title,
+   @HiveField(4) DateTime? createdAt,
+   @HiveField(5) DateTime? completedAt,
+   @HiveField(6) required int preferanceId,
    @HiveField(2) required String description,
    @HiveField(3) required bool isCompleted,
   }) = _TasksModel;

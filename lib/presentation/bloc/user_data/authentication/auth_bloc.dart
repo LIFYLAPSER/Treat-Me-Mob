@@ -5,12 +5,13 @@ import 'package:treat_me/data/repositories/user_repo/user_repository.dart';
 
 part 'auth_bloc_event.dart';
 part 'auth_bloc_state.dart';
-part 'auth_bloc_bloc.freezed.dart';
+part 'auth_bloc.freezed.dart';
 
-class AuthBlocBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
+class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
  final UserRepository repository;
 
-  AuthBlocBloc(this.repository) : super(const AuthBlocState.initial()) {
+  AuthBloc(this.repository) : super(const AuthBlocState.initial()) {
+    
     on<AppStarted>((event, emit) async {
       emit(const AuthBlocState.loading());
       try {
