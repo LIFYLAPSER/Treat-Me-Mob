@@ -4,15 +4,15 @@ import 'package:treat_me/presentation/pages/preferance/preferance_details_page.d
 
 class PreferanceItem extends StatelessWidget {
   final PreferanceModel preferance;
-  const PreferanceItem({Key? key, required this.preferance}): super(key: key);
+  const PreferanceItem({Key? key, required this.preferance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // Calculate the percentage value.
     final double percentageValue = preferance.percentage / 100.0;
-    
+
     return InkWell(
-        onTap: () {
+      onTap: () {
         // Navigate to the detail page, passing the preferance data
         Navigator.of(context).push(
           MaterialPageRoute(
@@ -35,7 +35,9 @@ class PreferanceItem extends StatelessWidget {
                     value: percentageValue,
                     strokeWidth: 12,
                     backgroundColor: Colors.grey.shade300,
-                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+                    valueColor: const AlwaysStoppedAnimation<Color>(
+                      Colors.blue,
+                    ),
                   ),
                   Center(
                     child: Text(
@@ -50,10 +52,7 @@ class PreferanceItem extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              preferance.preferance,
-              style: const TextStyle(fontSize: 14),
-            ),
+            Text(preferance.preferance, style: const TextStyle(fontSize: 14)),
           ],
         ),
       ),

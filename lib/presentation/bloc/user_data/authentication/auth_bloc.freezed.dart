@@ -18,45 +18,54 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() appStarted,
-    required TResult Function(UserModel user) login,
-    required TResult Function() logout,
+    required TResult Function(UserModel? user) authUserChanged,
+    required TResult Function(String email, String password, String username)
+        signUpRequested,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function() signOutRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appStarted,
-    TResult? Function(UserModel user)? login,
-    TResult? Function()? logout,
+    TResult? Function(UserModel? user)? authUserChanged,
+    TResult? Function(String email, String password, String username)?
+        signUpRequested,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function()? signOutRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appStarted,
-    TResult Function(UserModel user)? login,
-    TResult Function()? logout,
+    TResult Function(UserModel? user)? authUserChanged,
+    TResult Function(String email, String password, String username)?
+        signUpRequested,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function()? signOutRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AppStarted value) appStarted,
-    required TResult Function(LoginUser value) login,
-    required TResult Function(LogoutUser value) logout,
+    required TResult Function(AuthUserChanged value) authUserChanged,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignOutRequested value) signOutRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppStarted value)? appStarted,
-    TResult? Function(LoginUser value)? login,
-    TResult? Function(LogoutUser value)? logout,
+    TResult? Function(AuthUserChanged value)? authUserChanged,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignOutRequested value)? signOutRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppStarted value)? appStarted,
-    TResult Function(LoginUser value)? login,
-    TResult Function(LogoutUser value)? logout,
+    TResult Function(AuthUserChanged value)? authUserChanged,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignOutRequested value)? signOutRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,162 +90,54 @@ class _$AuthBlocEventCopyWithImpl<$Res, $Val extends AuthBlocEvent>
 }
 
 /// @nodoc
-abstract class _$$AppStartedImplCopyWith<$Res> {
-  factory _$$AppStartedImplCopyWith(
-          _$AppStartedImpl value, $Res Function(_$AppStartedImpl) then) =
-      __$$AppStartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AppStartedImplCopyWithImpl<$Res>
-    extends _$AuthBlocEventCopyWithImpl<$Res, _$AppStartedImpl>
-    implements _$$AppStartedImplCopyWith<$Res> {
-  __$$AppStartedImplCopyWithImpl(
-      _$AppStartedImpl _value, $Res Function(_$AppStartedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$AppStartedImpl implements AppStarted {
-  const _$AppStartedImpl();
-
-  @override
-  String toString() {
-    return 'AuthBlocEvent.appStarted()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AppStartedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appStarted,
-    required TResult Function(UserModel user) login,
-    required TResult Function() logout,
-  }) {
-    return appStarted();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appStarted,
-    TResult? Function(UserModel user)? login,
-    TResult? Function()? logout,
-  }) {
-    return appStarted?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appStarted,
-    TResult Function(UserModel user)? login,
-    TResult Function()? logout,
-    required TResult orElse(),
-  }) {
-    if (appStarted != null) {
-      return appStarted();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppStarted value) appStarted,
-    required TResult Function(LoginUser value) login,
-    required TResult Function(LogoutUser value) logout,
-  }) {
-    return appStarted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppStarted value)? appStarted,
-    TResult? Function(LoginUser value)? login,
-    TResult? Function(LogoutUser value)? logout,
-  }) {
-    return appStarted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppStarted value)? appStarted,
-    TResult Function(LoginUser value)? login,
-    TResult Function(LogoutUser value)? logout,
-    required TResult orElse(),
-  }) {
-    if (appStarted != null) {
-      return appStarted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AppStarted implements AuthBlocEvent {
-  const factory AppStarted() = _$AppStartedImpl;
-}
-
-/// @nodoc
-abstract class _$$LoginUserImplCopyWith<$Res> {
-  factory _$$LoginUserImplCopyWith(
-          _$LoginUserImpl value, $Res Function(_$LoginUserImpl) then) =
-      __$$LoginUserImplCopyWithImpl<$Res>;
+abstract class _$$AuthUserChangedImplCopyWith<$Res> {
+  factory _$$AuthUserChangedImplCopyWith(_$AuthUserChangedImpl value,
+          $Res Function(_$AuthUserChangedImpl) then) =
+      __$$AuthUserChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({UserModel? user});
 }
 
 /// @nodoc
-class __$$LoginUserImplCopyWithImpl<$Res>
-    extends _$AuthBlocEventCopyWithImpl<$Res, _$LoginUserImpl>
-    implements _$$LoginUserImplCopyWith<$Res> {
-  __$$LoginUserImplCopyWithImpl(
-      _$LoginUserImpl _value, $Res Function(_$LoginUserImpl) _then)
+class __$$AuthUserChangedImplCopyWithImpl<$Res>
+    extends _$AuthBlocEventCopyWithImpl<$Res, _$AuthUserChangedImpl>
+    implements _$$AuthUserChangedImplCopyWith<$Res> {
+  __$$AuthUserChangedImplCopyWithImpl(
+      _$AuthUserChangedImpl _value, $Res Function(_$AuthUserChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
+    Object? user = freezed,
   }) {
-    return _then(_$LoginUserImpl(
-      null == user
+    return _then(_$AuthUserChangedImpl(
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserModel?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoginUserImpl implements LoginUser {
-  const _$LoginUserImpl(this.user);
+class _$AuthUserChangedImpl implements AuthUserChanged {
+  const _$AuthUserChangedImpl({this.user});
 
   @override
-  final UserModel user;
+  final UserModel? user;
 
   @override
   String toString() {
-    return 'AuthBlocEvent.login(user: $user)';
+    return 'AuthBlocEvent.authUserChanged(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginUserImpl &&
+            other is _$AuthUserChangedImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -246,39 +147,46 @@ class _$LoginUserImpl implements LoginUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginUserImplCopyWith<_$LoginUserImpl> get copyWith =>
-      __$$LoginUserImplCopyWithImpl<_$LoginUserImpl>(this, _$identity);
+  _$$AuthUserChangedImplCopyWith<_$AuthUserChangedImpl> get copyWith =>
+      __$$AuthUserChangedImplCopyWithImpl<_$AuthUserChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() appStarted,
-    required TResult Function(UserModel user) login,
-    required TResult Function() logout,
+    required TResult Function(UserModel? user) authUserChanged,
+    required TResult Function(String email, String password, String username)
+        signUpRequested,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function() signOutRequested,
   }) {
-    return login(user);
+    return authUserChanged(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appStarted,
-    TResult? Function(UserModel user)? login,
-    TResult? Function()? logout,
+    TResult? Function(UserModel? user)? authUserChanged,
+    TResult? Function(String email, String password, String username)?
+        signUpRequested,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function()? signOutRequested,
   }) {
-    return login?.call(user);
+    return authUserChanged?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appStarted,
-    TResult Function(UserModel user)? login,
-    TResult Function()? logout,
+    TResult Function(UserModel? user)? authUserChanged,
+    TResult Function(String email, String password, String username)?
+        signUpRequested,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function()? signOutRequested,
     required TResult orElse(),
   }) {
-    if (login != null) {
-      return login(user);
+    if (authUserChanged != null) {
+      return authUserChanged(user);
     }
     return orElse();
   }
@@ -286,77 +194,415 @@ class _$LoginUserImpl implements LoginUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AppStarted value) appStarted,
-    required TResult Function(LoginUser value) login,
-    required TResult Function(LogoutUser value) logout,
+    required TResult Function(AuthUserChanged value) authUserChanged,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignOutRequested value) signOutRequested,
   }) {
-    return login(this);
+    return authUserChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppStarted value)? appStarted,
-    TResult? Function(LoginUser value)? login,
-    TResult? Function(LogoutUser value)? logout,
+    TResult? Function(AuthUserChanged value)? authUserChanged,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignOutRequested value)? signOutRequested,
   }) {
-    return login?.call(this);
+    return authUserChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppStarted value)? appStarted,
-    TResult Function(LoginUser value)? login,
-    TResult Function(LogoutUser value)? logout,
+    TResult Function(AuthUserChanged value)? authUserChanged,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignOutRequested value)? signOutRequested,
     required TResult orElse(),
   }) {
-    if (login != null) {
-      return login(this);
+    if (authUserChanged != null) {
+      return authUserChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class LoginUser implements AuthBlocEvent {
-  const factory LoginUser(final UserModel user) = _$LoginUserImpl;
+abstract class AuthUserChanged implements AuthBlocEvent {
+  const factory AuthUserChanged({final UserModel? user}) =
+      _$AuthUserChangedImpl;
 
-  UserModel get user;
+  UserModel? get user;
   @JsonKey(ignore: true)
-  _$$LoginUserImplCopyWith<_$LoginUserImpl> get copyWith =>
+  _$$AuthUserChangedImplCopyWith<_$AuthUserChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LogoutUserImplCopyWith<$Res> {
-  factory _$$LogoutUserImplCopyWith(
-          _$LogoutUserImpl value, $Res Function(_$LogoutUserImpl) then) =
-      __$$LogoutUserImplCopyWithImpl<$Res>;
+abstract class _$$SignUpRequestedImplCopyWith<$Res> {
+  factory _$$SignUpRequestedImplCopyWith(_$SignUpRequestedImpl value,
+          $Res Function(_$SignUpRequestedImpl) then) =
+      __$$SignUpRequestedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password, String username});
 }
 
 /// @nodoc
-class __$$LogoutUserImplCopyWithImpl<$Res>
-    extends _$AuthBlocEventCopyWithImpl<$Res, _$LogoutUserImpl>
-    implements _$$LogoutUserImplCopyWith<$Res> {
-  __$$LogoutUserImplCopyWithImpl(
-      _$LogoutUserImpl _value, $Res Function(_$LogoutUserImpl) _then)
+class __$$SignUpRequestedImplCopyWithImpl<$Res>
+    extends _$AuthBlocEventCopyWithImpl<$Res, _$SignUpRequestedImpl>
+    implements _$$SignUpRequestedImplCopyWith<$Res> {
+  __$$SignUpRequestedImplCopyWithImpl(
+      _$SignUpRequestedImpl _value, $Res Function(_$SignUpRequestedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? username = null,
+  }) {
+    return _then(_$SignUpRequestedImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$LogoutUserImpl implements LogoutUser {
-  const _$LogoutUserImpl();
+class _$SignUpRequestedImpl implements SignUpRequested {
+  const _$SignUpRequestedImpl(
+      {required this.email, required this.password, required this.username});
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final String username;
 
   @override
   String toString() {
-    return 'AuthBlocEvent.logout()';
+    return 'AuthBlocEvent.signUpRequested(email: $email, password: $password, username: $username)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LogoutUserImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpRequestedImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.username, username) ||
+                other.username == username));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password, username);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpRequestedImplCopyWith<_$SignUpRequestedImpl> get copyWith =>
+      __$$SignUpRequestedImplCopyWithImpl<_$SignUpRequestedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserModel? user) authUserChanged,
+    required TResult Function(String email, String password, String username)
+        signUpRequested,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function() signOutRequested,
+  }) {
+    return signUpRequested(email, password, username);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserModel? user)? authUserChanged,
+    TResult? Function(String email, String password, String username)?
+        signUpRequested,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function()? signOutRequested,
+  }) {
+    return signUpRequested?.call(email, password, username);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserModel? user)? authUserChanged,
+    TResult Function(String email, String password, String username)?
+        signUpRequested,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function()? signOutRequested,
+    required TResult orElse(),
+  }) {
+    if (signUpRequested != null) {
+      return signUpRequested(email, password, username);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthUserChanged value) authUserChanged,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignOutRequested value) signOutRequested,
+  }) {
+    return signUpRequested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthUserChanged value)? authUserChanged,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignOutRequested value)? signOutRequested,
+  }) {
+    return signUpRequested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthUserChanged value)? authUserChanged,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignOutRequested value)? signOutRequested,
+    required TResult orElse(),
+  }) {
+    if (signUpRequested != null) {
+      return signUpRequested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignUpRequested implements AuthBlocEvent {
+  const factory SignUpRequested(
+      {required final String email,
+      required final String password,
+      required final String username}) = _$SignUpRequestedImpl;
+
+  String get email;
+  String get password;
+  String get username;
+  @JsonKey(ignore: true)
+  _$$SignUpRequestedImplCopyWith<_$SignUpRequestedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignInRequestedImplCopyWith<$Res> {
+  factory _$$SignInRequestedImplCopyWith(_$SignInRequestedImpl value,
+          $Res Function(_$SignInRequestedImpl) then) =
+      __$$SignInRequestedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$SignInRequestedImplCopyWithImpl<$Res>
+    extends _$AuthBlocEventCopyWithImpl<$Res, _$SignInRequestedImpl>
+    implements _$$SignInRequestedImplCopyWith<$Res> {
+  __$$SignInRequestedImplCopyWithImpl(
+      _$SignInRequestedImpl _value, $Res Function(_$SignInRequestedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_$SignInRequestedImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignInRequestedImpl implements SignInRequested {
+  const _$SignInRequestedImpl({required this.email, required this.password});
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthBlocEvent.signInRequested(email: $email, password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignInRequestedImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignInRequestedImplCopyWith<_$SignInRequestedImpl> get copyWith =>
+      __$$SignInRequestedImplCopyWithImpl<_$SignInRequestedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserModel? user) authUserChanged,
+    required TResult Function(String email, String password, String username)
+        signUpRequested,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function() signOutRequested,
+  }) {
+    return signInRequested(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserModel? user)? authUserChanged,
+    TResult? Function(String email, String password, String username)?
+        signUpRequested,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function()? signOutRequested,
+  }) {
+    return signInRequested?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserModel? user)? authUserChanged,
+    TResult Function(String email, String password, String username)?
+        signUpRequested,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function()? signOutRequested,
+    required TResult orElse(),
+  }) {
+    if (signInRequested != null) {
+      return signInRequested(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthUserChanged value) authUserChanged,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignOutRequested value) signOutRequested,
+  }) {
+    return signInRequested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthUserChanged value)? authUserChanged,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignOutRequested value)? signOutRequested,
+  }) {
+    return signInRequested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthUserChanged value)? authUserChanged,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignOutRequested value)? signOutRequested,
+    required TResult orElse(),
+  }) {
+    if (signInRequested != null) {
+      return signInRequested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInRequested implements AuthBlocEvent {
+  const factory SignInRequested(
+      {required final String email,
+      required final String password}) = _$SignInRequestedImpl;
+
+  String get email;
+  String get password;
+  @JsonKey(ignore: true)
+  _$$SignInRequestedImplCopyWith<_$SignInRequestedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignOutRequestedImplCopyWith<$Res> {
+  factory _$$SignOutRequestedImplCopyWith(_$SignOutRequestedImpl value,
+          $Res Function(_$SignOutRequestedImpl) then) =
+      __$$SignOutRequestedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignOutRequestedImplCopyWithImpl<$Res>
+    extends _$AuthBlocEventCopyWithImpl<$Res, _$SignOutRequestedImpl>
+    implements _$$SignOutRequestedImplCopyWith<$Res> {
+  __$$SignOutRequestedImplCopyWithImpl(_$SignOutRequestedImpl _value,
+      $Res Function(_$SignOutRequestedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignOutRequestedImpl implements SignOutRequested {
+  const _$SignOutRequestedImpl();
+
+  @override
+  String toString() {
+    return 'AuthBlocEvent.signOutRequested()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignOutRequestedImpl);
   }
 
   @override
@@ -365,33 +611,39 @@ class _$LogoutUserImpl implements LogoutUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() appStarted,
-    required TResult Function(UserModel user) login,
-    required TResult Function() logout,
+    required TResult Function(UserModel? user) authUserChanged,
+    required TResult Function(String email, String password, String username)
+        signUpRequested,
+    required TResult Function(String email, String password) signInRequested,
+    required TResult Function() signOutRequested,
   }) {
-    return logout();
+    return signOutRequested();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appStarted,
-    TResult? Function(UserModel user)? login,
-    TResult? Function()? logout,
+    TResult? Function(UserModel? user)? authUserChanged,
+    TResult? Function(String email, String password, String username)?
+        signUpRequested,
+    TResult? Function(String email, String password)? signInRequested,
+    TResult? Function()? signOutRequested,
   }) {
-    return logout?.call();
+    return signOutRequested?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appStarted,
-    TResult Function(UserModel user)? login,
-    TResult Function()? logout,
+    TResult Function(UserModel? user)? authUserChanged,
+    TResult Function(String email, String password, String username)?
+        signUpRequested,
+    TResult Function(String email, String password)? signInRequested,
+    TResult Function()? signOutRequested,
     required TResult orElse(),
   }) {
-    if (logout != null) {
-      return logout();
+    if (signOutRequested != null) {
+      return signOutRequested();
     }
     return orElse();
   }
@@ -399,40 +651,43 @@ class _$LogoutUserImpl implements LogoutUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AppStarted value) appStarted,
-    required TResult Function(LoginUser value) login,
-    required TResult Function(LogoutUser value) logout,
+    required TResult Function(AuthUserChanged value) authUserChanged,
+    required TResult Function(SignUpRequested value) signUpRequested,
+    required TResult Function(SignInRequested value) signInRequested,
+    required TResult Function(SignOutRequested value) signOutRequested,
   }) {
-    return logout(this);
+    return signOutRequested(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppStarted value)? appStarted,
-    TResult? Function(LoginUser value)? login,
-    TResult? Function(LogoutUser value)? logout,
+    TResult? Function(AuthUserChanged value)? authUserChanged,
+    TResult? Function(SignUpRequested value)? signUpRequested,
+    TResult? Function(SignInRequested value)? signInRequested,
+    TResult? Function(SignOutRequested value)? signOutRequested,
   }) {
-    return logout?.call(this);
+    return signOutRequested?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppStarted value)? appStarted,
-    TResult Function(LoginUser value)? login,
-    TResult Function(LogoutUser value)? logout,
+    TResult Function(AuthUserChanged value)? authUserChanged,
+    TResult Function(SignUpRequested value)? signUpRequested,
+    TResult Function(SignInRequested value)? signInRequested,
+    TResult Function(SignOutRequested value)? signOutRequested,
     required TResult orElse(),
   }) {
-    if (logout != null) {
-      return logout(this);
+    if (signOutRequested != null) {
+      return signOutRequested(this);
     }
     return orElse();
   }
 }
 
-abstract class LogoutUser implements AuthBlocEvent {
-  const factory LogoutUser() = _$LogoutUserImpl;
+abstract class SignOutRequested implements AuthBlocEvent {
+  const factory SignOutRequested() = _$SignOutRequestedImpl;
 }
 
 /// @nodoc
@@ -776,7 +1031,7 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
     Object? user = null,
   }) {
     return _then(_$AuthenticatedImpl(
-      null == user
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
@@ -787,7 +1042,7 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl(this.user);
+  const _$AuthenticatedImpl({required this.user});
 
   @override
   final UserModel user;
@@ -896,7 +1151,8 @@ class _$AuthenticatedImpl implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthBlocState {
-  const factory _Authenticated(final UserModel user) = _$AuthenticatedImpl;
+  const factory _Authenticated({required final UserModel user}) =
+      _$AuthenticatedImpl;
 
   UserModel get user;
   @JsonKey(ignore: true)
@@ -1047,7 +1303,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
     Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1058,7 +1314,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.message);
+  const _$ErrorImpl({required this.message});
 
   @override
   final String message;
@@ -1167,7 +1423,7 @@ class _$ErrorImpl implements _Error {
 }
 
 abstract class _Error implements AuthBlocState {
-  const factory _Error(final String message) = _$ErrorImpl;
+  const factory _Error({required final String message}) = _$ErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)

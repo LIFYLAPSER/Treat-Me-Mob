@@ -32,7 +32,9 @@ mixin _$TaskEvent {
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,7 +53,9 @@ mixin _$TaskEvent {
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +74,9 @@ mixin _$TaskEvent {
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +89,8 @@ mixin _$TaskEvent {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,7 +101,8 @@ mixin _$TaskEvent {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,7 +113,8 @@ mixin _$TaskEvent {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -188,7 +197,9 @@ class _$FetchAllTasksImpl
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return fetchAllTasks();
   }
@@ -210,7 +221,9 @@ class _$FetchAllTasksImpl
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return fetchAllTasks?.call();
   }
@@ -232,7 +245,9 @@ class _$FetchAllTasksImpl
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (fetchAllTasks != null) {
@@ -251,7 +266,8 @@ class _$FetchAllTasksImpl
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return fetchAllTasks(this);
   }
@@ -265,7 +281,8 @@ class _$FetchAllTasksImpl
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return fetchAllTasks?.call(this);
   }
@@ -279,7 +296,8 @@ class _$FetchAllTasksImpl
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (fetchAllTasks != null) {
@@ -385,7 +403,9 @@ class _$FetchTasksByPreferanceImpl
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return fetchTasksByPreferance(preferanceId);
   }
@@ -407,7 +427,9 @@ class _$FetchTasksByPreferanceImpl
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return fetchTasksByPreferance?.call(preferanceId);
   }
@@ -429,7 +451,9 @@ class _$FetchTasksByPreferanceImpl
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (fetchTasksByPreferance != null) {
@@ -448,7 +472,8 @@ class _$FetchTasksByPreferanceImpl
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return fetchTasksByPreferance(this);
   }
@@ -462,7 +487,8 @@ class _$FetchTasksByPreferanceImpl
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return fetchTasksByPreferance?.call(this);
   }
@@ -476,7 +502,8 @@ class _$FetchTasksByPreferanceImpl
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (fetchTasksByPreferance != null) {
@@ -582,7 +609,9 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return getTask(id);
   }
@@ -604,7 +633,9 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return getTask?.call(id);
   }
@@ -626,7 +657,9 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (getTask != null) {
@@ -645,7 +678,8 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return getTask(this);
   }
@@ -659,7 +693,8 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return getTask?.call(this);
   }
@@ -673,7 +708,8 @@ class _$GetTaskImpl with DiagnosticableTreeMixin implements _GetTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (getTask != null) {
@@ -788,7 +824,9 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return addTask(task);
   }
@@ -810,7 +848,9 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return addTask?.call(task);
   }
@@ -832,7 +872,9 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -851,7 +893,8 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return addTask(this);
   }
@@ -865,7 +908,8 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return addTask?.call(this);
   }
@@ -879,7 +923,8 @@ class _$AddTaskImpl with DiagnosticableTreeMixin implements _AddTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -1058,7 +1103,9 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return updateTask(id, title, createdAt, completedAt, preferanceId,
         description, isCompleted);
@@ -1081,7 +1128,9 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return updateTask?.call(id, title, createdAt, completedAt, preferanceId,
         description, isCompleted);
@@ -1104,7 +1153,9 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (updateTask != null) {
@@ -1124,7 +1175,8 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return updateTask(this);
   }
@@ -1138,7 +1190,8 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return updateTask?.call(this);
   }
@@ -1152,7 +1205,8 @@ class _$UpdateTaskImpl with DiagnosticableTreeMixin implements _UpdateTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (updateTask != null) {
@@ -1270,7 +1324,9 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
     return deleteTask(id);
   }
@@ -1292,7 +1348,9 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
     return deleteTask?.call(id);
   }
@@ -1314,7 +1372,9 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
     if (deleteTask != null) {
@@ -1333,7 +1393,8 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
     return deleteTask(this);
   }
@@ -1347,7 +1408,8 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
     return deleteTask?.call(this);
   }
@@ -1361,7 +1423,8 @@ class _$DeleteTaskImpl with DiagnosticableTreeMixin implements _DeleteTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
     if (deleteTask != null) {
@@ -1381,76 +1444,97 @@ abstract class _DeleteTask implements TaskEvent {
 }
 
 /// @nodoc
-abstract class _$$ToggleTaskCompletionImplCopyWith<$Res> {
-  factory _$$ToggleTaskCompletionImplCopyWith(_$ToggleTaskCompletionImpl value,
-          $Res Function(_$ToggleTaskCompletionImpl) then) =
-      __$$ToggleTaskCompletionImplCopyWithImpl<$Res>;
+abstract class _$$UpdateTaskCompletionImplCopyWith<$Res> {
+  factory _$$UpdateTaskCompletionImplCopyWith(_$UpdateTaskCompletionImpl value,
+          $Res Function(_$UpdateTaskCompletionImpl) then) =
+      __$$UpdateTaskCompletionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({int id, bool isCompleted, DateTime completedAt});
 }
 
 /// @nodoc
-class __$$ToggleTaskCompletionImplCopyWithImpl<$Res>
-    extends _$TaskEventCopyWithImpl<$Res, _$ToggleTaskCompletionImpl>
-    implements _$$ToggleTaskCompletionImplCopyWith<$Res> {
-  __$$ToggleTaskCompletionImplCopyWithImpl(_$ToggleTaskCompletionImpl _value,
-      $Res Function(_$ToggleTaskCompletionImpl) _then)
+class __$$UpdateTaskCompletionImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$UpdateTaskCompletionImpl>
+    implements _$$UpdateTaskCompletionImplCopyWith<$Res> {
+  __$$UpdateTaskCompletionImplCopyWithImpl(_$UpdateTaskCompletionImpl _value,
+      $Res Function(_$UpdateTaskCompletionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
+    Object? isCompleted = null,
+    Object? completedAt = null,
   }) {
-    return _then(_$ToggleTaskCompletionImpl(
-      null == id
+    return _then(_$UpdateTaskCompletionImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      completedAt: null == completedAt
+          ? _value.completedAt
+          : completedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ToggleTaskCompletionImpl
+class _$UpdateTaskCompletionImpl
     with DiagnosticableTreeMixin
-    implements _ToggleTaskCompletion {
-  const _$ToggleTaskCompletionImpl(this.id);
+    implements _UpdateTaskCompletion {
+  const _$UpdateTaskCompletionImpl(
+      {required this.id, required this.isCompleted, required this.completedAt});
 
   @override
   final int id;
+  @override
+  final bool isCompleted;
+  @override
+  final DateTime completedAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TaskEvent.toggleTaskCompletion(id: $id)';
+    return 'TaskEvent.updateTaskCompletion(id: $id, isCompleted: $isCompleted, completedAt: $completedAt)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'TaskEvent.toggleTaskCompletion'))
-      ..add(DiagnosticsProperty('id', id));
+      ..add(DiagnosticsProperty('type', 'TaskEvent.updateTaskCompletion'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('isCompleted', isCompleted))
+      ..add(DiagnosticsProperty('completedAt', completedAt));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleTaskCompletionImpl &&
-            (identical(other.id, id) || other.id == id));
+            other is _$UpdateTaskCompletionImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted) &&
+            (identical(other.completedAt, completedAt) ||
+                other.completedAt == completedAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, id, isCompleted, completedAt);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ToggleTaskCompletionImplCopyWith<_$ToggleTaskCompletionImpl>
+  _$$UpdateTaskCompletionImplCopyWith<_$UpdateTaskCompletionImpl>
       get copyWith =>
-          __$$ToggleTaskCompletionImplCopyWithImpl<_$ToggleTaskCompletionImpl>(
+          __$$UpdateTaskCompletionImplCopyWithImpl<_$UpdateTaskCompletionImpl>(
               this, _$identity);
 
   @override
@@ -1470,9 +1554,11 @@ class _$ToggleTaskCompletionImpl
             bool isCompleted)
         updateTask,
     required TResult Function(int id) deleteTask,
-    required TResult Function(int id) toggleTaskCompletion,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
   }) {
-    return toggleTaskCompletion(id);
+    return updateTaskCompletion(id, isCompleted, completedAt);
   }
 
   @override
@@ -1492,9 +1578,11 @@ class _$ToggleTaskCompletionImpl
             bool isCompleted)?
         updateTask,
     TResult? Function(int id)? deleteTask,
-    TResult? Function(int id)? toggleTaskCompletion,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
   }) {
-    return toggleTaskCompletion?.call(id);
+    return updateTaskCompletion?.call(id, isCompleted, completedAt);
   }
 
   @override
@@ -1514,11 +1602,13 @@ class _$ToggleTaskCompletionImpl
             bool isCompleted)?
         updateTask,
     TResult Function(int id)? deleteTask,
-    TResult Function(int id)? toggleTaskCompletion,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
     required TResult orElse(),
   }) {
-    if (toggleTaskCompletion != null) {
-      return toggleTaskCompletion(id);
+    if (updateTaskCompletion != null) {
+      return updateTaskCompletion(id, isCompleted, completedAt);
     }
     return orElse();
   }
@@ -1533,9 +1623,10 @@ class _$ToggleTaskCompletionImpl
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_UpdateTask value) updateTask,
     required TResult Function(_DeleteTask value) deleteTask,
-    required TResult Function(_ToggleTaskCompletion value) toggleTaskCompletion,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
   }) {
-    return toggleTaskCompletion(this);
+    return updateTaskCompletion(this);
   }
 
   @override
@@ -1547,9 +1638,10 @@ class _$ToggleTaskCompletionImpl
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_UpdateTask value)? updateTask,
     TResult? Function(_DeleteTask value)? deleteTask,
-    TResult? Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
   }) {
-    return toggleTaskCompletion?.call(this);
+    return updateTaskCompletion?.call(this);
   }
 
   @override
@@ -1561,24 +1653,239 @@ class _$ToggleTaskCompletionImpl
     TResult Function(_AddTask value)? addTask,
     TResult Function(_UpdateTask value)? updateTask,
     TResult Function(_DeleteTask value)? deleteTask,
-    TResult Function(_ToggleTaskCompletion value)? toggleTaskCompletion,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
     required TResult orElse(),
   }) {
-    if (toggleTaskCompletion != null) {
-      return toggleTaskCompletion(this);
+    if (updateTaskCompletion != null) {
+      return updateTaskCompletion(this);
     }
     return orElse();
   }
 }
 
-abstract class _ToggleTaskCompletion implements TaskEvent {
-  const factory _ToggleTaskCompletion(final int id) =
-      _$ToggleTaskCompletionImpl;
+abstract class _UpdateTaskCompletion implements TaskEvent {
+  const factory _UpdateTaskCompletion(
+      {required final int id,
+      required final bool isCompleted,
+      required final DateTime completedAt}) = _$UpdateTaskCompletionImpl;
 
   int get id;
+  bool get isCompleted;
+  DateTime get completedAt;
   @JsonKey(ignore: true)
-  _$$ToggleTaskCompletionImplCopyWith<_$ToggleTaskCompletionImpl>
+  _$$UpdateTaskCompletionImplCopyWith<_$UpdateTaskCompletionImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CompletePendingTaskImplCopyWith<$Res> {
+  factory _$$CompletePendingTaskImplCopyWith(_$CompletePendingTaskImpl value,
+          $Res Function(_$CompletePendingTaskImpl) then) =
+      __$$CompletePendingTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int preferanceId});
+}
+
+/// @nodoc
+class __$$CompletePendingTaskImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$CompletePendingTaskImpl>
+    implements _$$CompletePendingTaskImplCopyWith<$Res> {
+  __$$CompletePendingTaskImplCopyWithImpl(_$CompletePendingTaskImpl _value,
+      $Res Function(_$CompletePendingTaskImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? preferanceId = null,
+  }) {
+    return _then(_$CompletePendingTaskImpl(
+      null == preferanceId
+          ? _value.preferanceId
+          : preferanceId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CompletePendingTaskImpl
+    with DiagnosticableTreeMixin
+    implements _CompletePendingTask {
+  const _$CompletePendingTaskImpl(this.preferanceId);
+
+  @override
+  final int preferanceId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TaskEvent.completePendingTask(preferanceId: $preferanceId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TaskEvent.completePendingTask'))
+      ..add(DiagnosticsProperty('preferanceId', preferanceId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompletePendingTaskImpl &&
+            (identical(other.preferanceId, preferanceId) ||
+                other.preferanceId == preferanceId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, preferanceId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CompletePendingTaskImplCopyWith<_$CompletePendingTaskImpl> get copyWith =>
+      __$$CompletePendingTaskImplCopyWithImpl<_$CompletePendingTaskImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchAllTasks,
+    required TResult Function(int preferanceId) fetchTasksByPreferance,
+    required TResult Function(int id) getTask,
+    required TResult Function(TasksModel task) addTask,
+    required TResult Function(
+            int id,
+            String title,
+            DateTime createdAt,
+            DateTime completedAt,
+            int preferanceId,
+            String description,
+            bool isCompleted)
+        updateTask,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(int id, bool isCompleted, DateTime completedAt)
+        updateTaskCompletion,
+    required TResult Function(int preferanceId) completePendingTask,
+  }) {
+    return completePendingTask(preferanceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchAllTasks,
+    TResult? Function(int preferanceId)? fetchTasksByPreferance,
+    TResult? Function(int id)? getTask,
+    TResult? Function(TasksModel task)? addTask,
+    TResult? Function(
+            int id,
+            String title,
+            DateTime createdAt,
+            DateTime completedAt,
+            int preferanceId,
+            String description,
+            bool isCompleted)?
+        updateTask,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult? Function(int preferanceId)? completePendingTask,
+  }) {
+    return completePendingTask?.call(preferanceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchAllTasks,
+    TResult Function(int preferanceId)? fetchTasksByPreferance,
+    TResult Function(int id)? getTask,
+    TResult Function(TasksModel task)? addTask,
+    TResult Function(
+            int id,
+            String title,
+            DateTime createdAt,
+            DateTime completedAt,
+            int preferanceId,
+            String description,
+            bool isCompleted)?
+        updateTask,
+    TResult Function(int id)? deleteTask,
+    TResult Function(int id, bool isCompleted, DateTime completedAt)?
+        updateTaskCompletion,
+    TResult Function(int preferanceId)? completePendingTask,
+    required TResult orElse(),
+  }) {
+    if (completePendingTask != null) {
+      return completePendingTask(preferanceId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchAllTasks value) fetchAllTasks,
+    required TResult Function(_FetchTasksByPreferance value)
+        fetchTasksByPreferance,
+    required TResult Function(_GetTask value) getTask,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_UpdateTask value) updateTask,
+    required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_UpdateTaskCompletion value) updateTaskCompletion,
+    required TResult Function(_CompletePendingTask value) completePendingTask,
+  }) {
+    return completePendingTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchAllTasks value)? fetchAllTasks,
+    TResult? Function(_FetchTasksByPreferance value)? fetchTasksByPreferance,
+    TResult? Function(_GetTask value)? getTask,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_UpdateTask value)? updateTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult? Function(_CompletePendingTask value)? completePendingTask,
+  }) {
+    return completePendingTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchAllTasks value)? fetchAllTasks,
+    TResult Function(_FetchTasksByPreferance value)? fetchTasksByPreferance,
+    TResult Function(_GetTask value)? getTask,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_UpdateTask value)? updateTask,
+    TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_UpdateTaskCompletion value)? updateTaskCompletion,
+    TResult Function(_CompletePendingTask value)? completePendingTask,
+    required TResult orElse(),
+  }) {
+    if (completePendingTask != null) {
+      return completePendingTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CompletePendingTask implements TaskEvent {
+  const factory _CompletePendingTask(final int preferanceId) =
+      _$CompletePendingTaskImpl;
+
+  int get preferanceId;
+  @JsonKey(ignore: true)
+  _$$CompletePendingTaskImplCopyWith<_$CompletePendingTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

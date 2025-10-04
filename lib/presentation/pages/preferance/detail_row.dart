@@ -6,7 +6,11 @@ class DetailRow extends StatelessWidget {
   final String value;
   final IconData icon;
 
-  const DetailRow({required this.label, required this.value, required this.icon});
+  const DetailRow({
+    required this.label,
+    required this.value,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {

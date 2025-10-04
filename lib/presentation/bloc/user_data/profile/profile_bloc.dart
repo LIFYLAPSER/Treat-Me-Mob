@@ -1,14 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:treat_me/data/repositories/user_repo/user_repository.dart';
+import 'package:treat_me/domain/repositories/user_repo/user_repository.dart';
 
 part 'profile_bloc_event.dart';
 part 'profile_bloc_state.dart';
-part 'profile_bloc_bloc.freezed.dart';
+part 'profile_bloc.freezed.dart';
 
-class ProfileBlocBloc extends Bloc<ProfileBlocEvent, ProfileBlocState> {
+class ProfileBloc extends Bloc<ProfileBlocEvent, ProfileBlocState> {
   final UserRepository repository;
-    ProfileBlocBloc(this.repository) : super(ProfileBlocState.initial()) {
+  ProfileBloc({required this.repository}) : super(ProfileBlocState.initial()) {
     on<ProfileBlocEvent>((event, emit) async {
       await event.when(
         started: () async {

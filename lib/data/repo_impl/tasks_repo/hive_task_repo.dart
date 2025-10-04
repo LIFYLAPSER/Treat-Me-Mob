@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:treat_me/data/model/tasks_model/tasks_model.dart';
-import 'package:treat_me/data/repositories/tasks_repo/tasks_repositories.dart';
+import 'package:treat_me/domain/repositories/tasks_repo/tasks_repositories.dart';
 
 class HiveTaskRepo implements TasksRepository {
   final Box<TasksModel> _taskBox;
@@ -55,5 +55,18 @@ class HiveTaskRepo implements TasksRepository {
       throw Exception('Task with id $id not found');
     }
  
+  }
+@override
+ Future<TasksModel?> getPendingTaskByPreferance(int preferanceId) async {
+    try {
+      final pendingTasks = _taskBox.values.where((task) => task.preferanceId == preferanceId && !task.isCompleted).toList();
+      if (pendingTasks.isNotEmpty) {
+        return pendingTasks.first;
+      } else {
+        return null; // No pending task found
+      }
+    } catch (e) {
+      throw Exception('Error retrieving pending task: $e');
+    }
   }
 }

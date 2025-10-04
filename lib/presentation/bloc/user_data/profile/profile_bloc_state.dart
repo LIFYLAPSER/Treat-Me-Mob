@@ -1,4 +1,4 @@
-part of 'profile_bloc_bloc.dart';
+part of 'profile_bloc.dart';
 
 @freezed
 class ProfileBlocState with _$ProfileBlocState {

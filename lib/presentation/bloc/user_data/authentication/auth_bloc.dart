@@ -1,49 +1,92 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:treat_me/data/model/user_data/user_model.dart';
-import 'package:treat_me/data/repositories/user_repo/user_repository.dart';
+import 'package:treat_me/domain/repositories/auth_repo/auth_repo.dart';
+
+import '../../../../data/model/user_data/user_model.dart';
 
 part 'auth_bloc_event.dart';
 part 'auth_bloc_state.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
- final UserRepository repository;
+  final AuthRepository authRepository;
+  StreamSubscription<UserModel?>? _userSubscription;
 
-  AuthBloc(this.repository) : super(const AuthBlocState.initial()) {
-    
-    on<AppStarted>((event, emit) async {
-      emit(const AuthBlocState.loading());
-      try {
-        final user = await repository.getUser();
-        if (user != null) {
-          emit(AuthBlocState.authenticated(user));
-        } else {
-          emit(const AuthBlocState.unauthenticated());
-        }
-      } catch (e) {
-        emit(AuthBlocState.error(e.toString()));
-      }
+  
+     AuthBloc({required this.authRepository}) : super(const AuthBlocState.initial()) {
+    // This part is listening for changes from Firebase
+    _userSubscription = authRepository.authStateChanges.listen((user) {
+      add(AuthBlocEvent.authUserChanged(user: user));
     });
 
-    on<LoginUser>((event, emit) async {
-      emit(const AuthBlocState.loading());
-      try {
-        await repository.saveUser(event.user);
-        emit(AuthBlocState.authenticated(event.user));
-      } catch (e) {
-        emit(AuthBlocState.error("Login failed: $e"));
-      }
-    });
+    on<AuthUserChanged>(_onAuthUserChanged);
+    on<SignUpRequested>(_onSignUpRequested);
+    on<SignInRequested>(_onSignInRequested);
+    on<SignOutRequested>(_onSignOutRequested);
+  }
 
-    on<LogoutUser>((event, emit) async {
-      emit(const AuthBlocState.loading());
-      try {
-        await repository.deleteUser();
-        emit(const AuthBlocState.unauthenticated());
-      } catch (e) {
-        emit(AuthBlocState.error("Logout failed: $e"));
-      }
-    });
+  void _onAuthUserChanged(
+    AuthUserChanged event,
+    Emitter<AuthBlocState> emit,
+  ) {
+    if (event.user != null) {
+      emit(AuthBlocState.authenticated(user: event.user!));
+    } else {
+      emit(const AuthBlocState.unauthenticated());
+    }
+  }
+
+  Future<void> _onSignUpRequested(
+    SignUpRequested event,
+    Emitter<AuthBlocState> emit,
+  ) async {
+    emit(const AuthBlocState.loading());
+    try {
+      await authRepository.signUp(
+        email: event.email,
+        password: event.password,
+        username: event.username,
+      );
+      // No need to emit success here; the stream listener will do it automatically.
+    } catch (e) {
+      emit(AuthBlocState.error(message: e.toString()));
+    }
+  }
+
+  Future<void> _onSignInRequested(
+    SignInRequested event,
+    Emitter<AuthBlocState> emit,
+  ) async {
+    emit(const AuthBlocState.loading());
+    try {
+      await authRepository.logIn(
+        email: event.email,
+        password: event.password,
+      );
+      // No need to emit success here; the stream listener will do it automatically.
+    } catch (e) {
+      emit(AuthBlocState.error(message: e.toString()));
+    }
+  }
+
+  Future<void> _onSignOutRequested(
+    SignOutRequested event,
+    Emitter<AuthBlocState> emit,
+  ) async {
+    emit(const AuthBlocState.loading());
+    try {
+      await authRepository.signOut();
+      // No need to emit success here; the stream listener will do it automatically.
+    } catch (e) {
+      emit(AuthBlocState.error(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _userSubscription?.cancel();
+    return super.close();
   }
 }

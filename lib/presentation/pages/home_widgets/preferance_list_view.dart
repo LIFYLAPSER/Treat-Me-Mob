@@ -6,22 +6,23 @@ import 'add_preferance_button.dart';
 import 'preferance_item.dart';
 
 class PreferanceListView extends StatelessWidget {
-
   const PreferanceListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PreferanceBloc,PreferanceState>(
-      builder: (context,state){
+    return BlocBuilder<PreferanceBloc, PreferanceState>(
+      builder: (context, state) {
         return state.when(
-          initial: (){
-            context.read<PreferanceBloc>().add(const PreferanceEvent.fetchAllPreferances());
+          initial: () {
+            context.read<PreferanceBloc>().add(
+              const PreferanceEvent.fetchAllPreferances(),
+            );
             return const Center(child: CircularProgressIndicator());
           },
-          loading: (){
+          loading: () {
             return const Center(child: CircularProgressIndicator());
           },
-           loaded: (preferances) {
+          loaded: (preferances) {
             // Check if the list is empty and show a message if so, but
             // still allow the "add" button to be visible.
             if (preferances.isEmpty) {
@@ -54,12 +55,12 @@ class PreferanceListView extends StatelessWidget {
                 },
               ),
             );
-          
           },
-          error: (message){
+          error: (message) {
             return Center(child: Text("Error: $message"));
           },
         );
-      });
+      },
+    );
   }
 }

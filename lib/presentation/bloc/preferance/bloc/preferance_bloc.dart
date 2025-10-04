@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:treat_me/data/repositories/preferance_repo/preferance_repository.dart';
+import 'package:treat_me/domain/repositories/preferance_repo/preferance_repository.dart';
 
 import '../../../../data/model/user_preferance_list_model/preferance_model.dart';
 
@@ -10,7 +10,7 @@ part 'preferance_bloc.freezed.dart';
 
 class PreferanceBloc extends Bloc<PreferanceEvent, PreferanceState> {
   final PreferanceRepository repository;
-  PreferanceBloc(this.repository) : super(PreferanceState.initial()) {
+  PreferanceBloc({required this.repository}) : super(PreferanceState.initial()) {
     
    on<_FetchAllPreferances>((event, emit) async {
       emit(const PreferanceState.loading());

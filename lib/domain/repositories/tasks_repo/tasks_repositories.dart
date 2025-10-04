@@ -4,9 +4,10 @@ abstract class TasksRepository {
 
   Future<List<TasksModel>> getAllTasks();
   Future<List<TasksModel>> getTasksByPreferance(int preferanceId);
-  Future<TasksModel> getTask(int id);
+  Future<TasksModel?> getTask(int id);
   Future<void> deleteTask(int id);
   Future<void> updateTask(int id, String title,DateTime createdAt,DateTime completedAt,int preferanceId, String description, bool isCompleted);
   Future<void> addTask( TasksModel task);
-
+  Future<TasksModel?> getPendingTaskByPreferance(int preferanceId);
+  
 }

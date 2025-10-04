@@ -1,13 +1,21 @@
+import 'package:hive/hive.dart';
+part 'user_db.g.dart';
 
-
-
-class UserModel {
+@HiveType(typeId: 1)
+class UserDbModel {
+  @HiveField(0)
   final String userId;
+
+  @HiveField(1)
   final String username;
+
+  @HiveField(2)
   final String email;
+
+  @HiveField(3)
   final int? points;
 
-  UserModel({
+  UserDbModel({
     required this.userId,
     required this.username,
     required this.email,
@@ -15,13 +23,13 @@ class UserModel {
   });
 
   // Copy method (update a few fields)
-  UserModel copyWith({
+  UserDbModel copyWith({
     String? userId,
     String? username,
     String? email,
     int? points,
   }) {
-    return UserModel(
+    return UserDbModel(
       userId: userId ?? this.userId,
       username: username ?? this.username,
       email: email ?? this.email,
@@ -31,15 +39,15 @@ class UserModel {
 
   // Convert to JSON
   Map<String, dynamic> toJson() => {
-        'userId': userId,
-        'username': username,
-        'email': email,
-        'points': points,
-      };
+    'userId': userId,
+    'username': username,
+    'email': email,
+    'points': points,
+  };
 
   // Convert from JSON
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+  factory UserDbModel.fromJson(Map<String, dynamic> json) {
+    return UserDbModel(
       userId: json['userId'],
       username: json['username'],
       email: json['email'],

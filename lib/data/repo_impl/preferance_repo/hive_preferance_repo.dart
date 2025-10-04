@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:treat_me/data/model/user_preferance_list_model/preferance_model.dart';
-import 'package:treat_me/data/repositories/preferance_repo/preferance_repository.dart';
+import 'package:treat_me/domain/repositories/preferance_repo/preferance_repository.dart';
 
 class HivePreferanceRepo implements PreferanceRepository{
   final Box<PreferanceModel> _box;

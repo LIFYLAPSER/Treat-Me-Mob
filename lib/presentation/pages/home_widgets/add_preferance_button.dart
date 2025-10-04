@@ -8,8 +8,8 @@ import '../../../data/model/user_preferance_list_model/preferance_model.dart';
 import '../../bloc/preferance/bloc/preferance_bloc.dart';
 
 class AddPreferanceButton extends StatelessWidget {
-   AddPreferanceButton({Key? key}) : super(key: key);
-    // Define the list of available preferences
+  AddPreferanceButton({Key? key}) : super(key: key);
+  // Define the list of available preferences
   static const List<String> _availablePreferences = [
     'Reading',
     'Exercise',
@@ -17,17 +17,17 @@ class AddPreferanceButton extends StatelessWidget {
     'Meditation',
   ];
 
-    // Use a final instance of Random for generating unique IDs
+  // Use a final instance of Random for generating unique IDs
   final Random _random = Random();
 
   // Helper function to generate a more robust unique integer ID
   int _generateUniqueId() {
     // Generates a random 31-bit positive integer (max value ~2.1 billion).
     // This avoids the massive integer values that caused the Hive error.
-    return _random.nextInt(0x7FFFFFFF); 
+    return _random.nextInt(0x7FFFFFFF);
   }
 
-   void _showAddPreferanceSheet(BuildContext context) {
+  void _showAddPreferanceSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext sheetContext) {
@@ -43,16 +43,19 @@ class AddPreferanceButton extends StatelessWidget {
             ),
             ..._availablePreferences.map((prefName) {
               return ListTile(
-                leading: const Icon(Icons.add_circle_outline, color: Colors.blue),
+                leading: const Icon(
+                  Icons.add_circle_outline,
+                  color: Colors.blue,
+                ),
                 title: Text(prefName),
                 onTap: () {
                   // 1. Dismiss the bottom sheet
                   Navigator.pop(sheetContext);
 
-                   // 2. Create the new model instance
+                  // 2. Create the new model instance
                   final newPreferance = PreferanceModel(
                     // Generate a more unique ID using the helper function.
-                    id: _generateUniqueId(), 
+                    id: _generateUniqueId(),
                     percentage: 0,
                     preferance: prefName,
                     tasksCompleted: 0,
@@ -60,7 +63,7 @@ class AddPreferanceButton extends StatelessWidget {
 
                   // 3. Dispatch the event to the Bloc
                   context.read<PreferanceBloc>().add(
-                      PreferanceEvent.addPreferance(newPreferance)
+                    PreferanceEvent.addPreferance(newPreferance),
                   );
                 },
               );
@@ -81,7 +84,7 @@ class AddPreferanceButton extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-          // Now calls the modal sheet function
+              // Now calls the modal sheet function
               _showAddPreferanceSheet(context);
             },
             child: Container(
@@ -92,11 +95,7 @@ class AddPreferanceButton extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade400, width: 2),
                 color: Colors.green.shade50,
               ),
-              child: Icon(
-                Icons.add,
-                size: 40,
-                color: Colors.green.shade400,
-              ),
+              child: Icon(Icons.add, size: 40, color: Colors.green.shade400),
             ),
           ),
           const SizedBox(height: 8),
