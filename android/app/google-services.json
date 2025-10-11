@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "501343747151",
+    "project_id": "treat-me-51b03",
+    "storage_bucket": "treat-me-51b03.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501343747151:android:14c11de486e83af659fe3a",
+        "android_client_info": {
+          "package_name": "com.example.treat_me"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOLoZNtOHwlctGqZ9zohdg1C9-A7s7QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
