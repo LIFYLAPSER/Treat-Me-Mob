@@ -9,7 +9,7 @@ import 'package:treat_me/data/model/user_preferance_list_model/preferance_model.
 import 'package:treat_me/presentation/root_widget_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'core/service_locator.dart';
-import 'firebase_options.dart';
+import 'firebase_option.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
