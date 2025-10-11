@@ -3,17 +3,8 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-/// Default [FirebaseOptions] for use with your Firebase apps.
-///
-/// Example:
-/// ```dart
-/// import 'firebase_options.dart';
-/// // ...
-/// await Firebase.initializeApp(
-///   options: DefaultFirebaseOptions.currentPlatform,
-/// );
-/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -49,20 +40,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCuOLoZNtOHwlctGqZ9zohdg1C9-A7s7QA',
+  static final FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['FIRE_BASE_KEY_ANDROID'] ?? '',
     appId: '1:501343747151:android:14c11de486e83af659fe3a',
     messagingSenderId: '501343747151',
-    projectId: 'treat-me-51b03',
-    storageBucket: 'treat-me-51b03.firebasestorage.app',
+    projectId: dotenv.env['FIRE_BASE_PROJECT_ID'] ?? '',
+    storageBucket: dotenv.env['FIRE_BASE_STORAGE_BUCKET'] ?? '',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCRi1k1hF2MG11krGwRMf376rMBHxhzRs0',
+  static final FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['FIRE_BASE_KEY_IOS'] ?? '',
     appId: '1:501343747151:ios:dcce7fe11b2d7ea459fe3a',
     messagingSenderId: '501343747151',
-    projectId: 'treat-me-51b03',
-    storageBucket: 'treat-me-51b03.firebasestorage.app',
+    projectId: dotenv.env['FIRE_BASE_PROJECT_ID'] ?? '',
+    storageBucket: dotenv.env['FIRE_BASE_STORAGE_BUCKET'] ?? '',
     iosBundleId: 'com.example.treatMe',
   );
 

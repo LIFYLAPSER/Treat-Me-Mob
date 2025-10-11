@@ -20,6 +20,7 @@ mixin _$ProfileBlocEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchPoint,
+    required TResult Function() loadUserData,
     required TResult Function(int point) updatePoint,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ProfileBlocEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchPoint,
+    TResult? Function()? loadUserData,
     TResult? Function(int point)? updatePoint,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ProfileBlocEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchPoint,
+    TResult Function()? loadUserData,
     TResult Function(int point)? updatePoint,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ProfileBlocEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchPoint value) fetchPoint,
+    required TResult Function(_LoadUserData value) loadUserData,
     required TResult Function(_UpdatePoint value) updatePoint,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ProfileBlocEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchPoint value)? fetchPoint,
+    TResult? Function(_LoadUserData value)? loadUserData,
     TResult? Function(_UpdatePoint value)? updatePoint,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ProfileBlocEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchPoint value)? fetchPoint,
+    TResult Function(_LoadUserData value)? loadUserData,
     TResult Function(_UpdatePoint value)? updatePoint,
     required TResult orElse(),
   }) =>
@@ -120,6 +126,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchPoint,
+    required TResult Function() loadUserData,
     required TResult Function(int point) updatePoint,
   }) {
     return started();
@@ -130,6 +137,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchPoint,
+    TResult? Function()? loadUserData,
     TResult? Function(int point)? updatePoint,
   }) {
     return started?.call();
@@ -140,6 +148,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchPoint,
+    TResult Function()? loadUserData,
     TResult Function(int point)? updatePoint,
     required TResult orElse(),
   }) {
@@ -154,6 +163,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchPoint value) fetchPoint,
+    required TResult Function(_LoadUserData value) loadUserData,
     required TResult Function(_UpdatePoint value) updatePoint,
   }) {
     return started(this);
@@ -164,6 +174,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchPoint value)? fetchPoint,
+    TResult? Function(_LoadUserData value)? loadUserData,
     TResult? Function(_UpdatePoint value)? updatePoint,
   }) {
     return started?.call(this);
@@ -174,6 +185,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchPoint value)? fetchPoint,
+    TResult Function(_LoadUserData value)? loadUserData,
     TResult Function(_UpdatePoint value)? updatePoint,
     required TResult orElse(),
   }) {
@@ -228,6 +240,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchPoint,
+    required TResult Function() loadUserData,
     required TResult Function(int point) updatePoint,
   }) {
     return fetchPoint();
@@ -238,6 +251,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchPoint,
+    TResult? Function()? loadUserData,
     TResult? Function(int point)? updatePoint,
   }) {
     return fetchPoint?.call();
@@ -248,6 +262,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchPoint,
+    TResult Function()? loadUserData,
     TResult Function(int point)? updatePoint,
     required TResult orElse(),
   }) {
@@ -262,6 +277,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchPoint value) fetchPoint,
+    required TResult Function(_LoadUserData value) loadUserData,
     required TResult Function(_UpdatePoint value) updatePoint,
   }) {
     return fetchPoint(this);
@@ -272,6 +288,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchPoint value)? fetchPoint,
+    TResult? Function(_LoadUserData value)? loadUserData,
     TResult? Function(_UpdatePoint value)? updatePoint,
   }) {
     return fetchPoint?.call(this);
@@ -282,6 +299,7 @@ class _$FetchPointImpl implements _FetchPoint {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchPoint value)? fetchPoint,
+    TResult Function(_LoadUserData value)? loadUserData,
     TResult Function(_UpdatePoint value)? updatePoint,
     required TResult orElse(),
   }) {
@@ -294,6 +312,120 @@ class _$FetchPointImpl implements _FetchPoint {
 
 abstract class _FetchPoint implements ProfileBlocEvent {
   const factory _FetchPoint() = _$FetchPointImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadUserDataImplCopyWith<$Res> {
+  factory _$$LoadUserDataImplCopyWith(
+          _$LoadUserDataImpl value, $Res Function(_$LoadUserDataImpl) then) =
+      __$$LoadUserDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadUserDataImplCopyWithImpl<$Res>
+    extends _$ProfileBlocEventCopyWithImpl<$Res, _$LoadUserDataImpl>
+    implements _$$LoadUserDataImplCopyWith<$Res> {
+  __$$LoadUserDataImplCopyWithImpl(
+      _$LoadUserDataImpl _value, $Res Function(_$LoadUserDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadUserDataImpl implements _LoadUserData {
+  const _$LoadUserDataImpl();
+
+  @override
+  String toString() {
+    return 'ProfileBlocEvent.loadUserData()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadUserDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetchPoint,
+    required TResult Function() loadUserData,
+    required TResult Function(int point) updatePoint,
+  }) {
+    return loadUserData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetchPoint,
+    TResult? Function()? loadUserData,
+    TResult? Function(int point)? updatePoint,
+  }) {
+    return loadUserData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetchPoint,
+    TResult Function()? loadUserData,
+    TResult Function(int point)? updatePoint,
+    required TResult orElse(),
+  }) {
+    if (loadUserData != null) {
+      return loadUserData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_FetchPoint value) fetchPoint,
+    required TResult Function(_LoadUserData value) loadUserData,
+    required TResult Function(_UpdatePoint value) updatePoint,
+  }) {
+    return loadUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_FetchPoint value)? fetchPoint,
+    TResult? Function(_LoadUserData value)? loadUserData,
+    TResult? Function(_UpdatePoint value)? updatePoint,
+  }) {
+    return loadUserData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_FetchPoint value)? fetchPoint,
+    TResult Function(_LoadUserData value)? loadUserData,
+    TResult Function(_UpdatePoint value)? updatePoint,
+    required TResult orElse(),
+  }) {
+    if (loadUserData != null) {
+      return loadUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadUserData implements ProfileBlocEvent {
+  const factory _LoadUserData() = _$LoadUserDataImpl;
 }
 
 /// @nodoc
@@ -362,6 +494,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetchPoint,
+    required TResult Function() loadUserData,
     required TResult Function(int point) updatePoint,
   }) {
     return updatePoint(point);
@@ -372,6 +505,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetchPoint,
+    TResult? Function()? loadUserData,
     TResult? Function(int point)? updatePoint,
   }) {
     return updatePoint?.call(point);
@@ -382,6 +516,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetchPoint,
+    TResult Function()? loadUserData,
     TResult Function(int point)? updatePoint,
     required TResult orElse(),
   }) {
@@ -396,6 +531,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_FetchPoint value) fetchPoint,
+    required TResult Function(_LoadUserData value) loadUserData,
     required TResult Function(_UpdatePoint value) updatePoint,
   }) {
     return updatePoint(this);
@@ -406,6 +542,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_FetchPoint value)? fetchPoint,
+    TResult? Function(_LoadUserData value)? loadUserData,
     TResult? Function(_UpdatePoint value)? updatePoint,
   }) {
     return updatePoint?.call(this);
@@ -416,6 +553,7 @@ class _$UpdatePointImpl implements _UpdatePoint {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_FetchPoint value)? fetchPoint,
+    TResult Function(_LoadUserData value)? loadUserData,
     TResult Function(_UpdatePoint value)? updatePoint,
     required TResult orElse(),
   }) {
@@ -441,6 +579,7 @@ mixin _$ProfileBlocState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
     required TResult Function(int points) pointUpdated,
     required TResult Function(String message) error,
   }) =>
@@ -449,6 +588,7 @@ mixin _$ProfileBlocState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
     TResult? Function(int points)? pointUpdated,
     TResult? Function(String message)? error,
   }) =>
@@ -457,6 +597,7 @@ mixin _$ProfileBlocState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
     TResult Function(int points)? pointUpdated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -466,6 +607,7 @@ mixin _$ProfileBlocState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
     required TResult Function(_PointUpdated value) pointUpdated,
     required TResult Function(_Error value) error,
   }) =>
@@ -474,6 +616,7 @@ mixin _$ProfileBlocState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
     TResult? Function(_PointUpdated value)? pointUpdated,
     TResult? Function(_Error value)? error,
   }) =>
@@ -482,6 +625,7 @@ mixin _$ProfileBlocState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
     TResult Function(_PointUpdated value)? pointUpdated,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -547,6 +691,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
     required TResult Function(int points) pointUpdated,
     required TResult Function(String message) error,
   }) {
@@ -558,6 +703,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
     TResult? Function(int points)? pointUpdated,
     TResult? Function(String message)? error,
   }) {
@@ -569,6 +715,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
     TResult Function(int points)? pointUpdated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -584,6 +731,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
     required TResult Function(_PointUpdated value) pointUpdated,
     required TResult Function(_Error value) error,
   }) {
@@ -595,6 +743,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
     TResult? Function(_PointUpdated value)? pointUpdated,
     TResult? Function(_Error value)? error,
   }) {
@@ -606,6 +755,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
     TResult Function(_PointUpdated value)? pointUpdated,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -661,6 +811,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
     required TResult Function(int points) pointUpdated,
     required TResult Function(String message) error,
   }) {
@@ -672,6 +823,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
     TResult? Function(int points)? pointUpdated,
     TResult? Function(String message)? error,
   }) {
@@ -683,6 +835,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
     TResult Function(int points)? pointUpdated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -698,6 +851,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
     required TResult Function(_PointUpdated value) pointUpdated,
     required TResult Function(_Error value) error,
   }) {
@@ -709,6 +863,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
     TResult? Function(_PointUpdated value)? pointUpdated,
     TResult? Function(_Error value)? error,
   }) {
@@ -720,6 +875,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
     TResult Function(_PointUpdated value)? pointUpdated,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -733,6 +889,158 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements ProfileBlocState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$UserDataLoadedImplCopyWith<$Res> {
+  factory _$$UserDataLoadedImplCopyWith(_$UserDataLoadedImpl value,
+          $Res Function(_$UserDataLoadedImpl) then) =
+      __$$UserDataLoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserDbModel user});
+}
+
+/// @nodoc
+class __$$UserDataLoadedImplCopyWithImpl<$Res>
+    extends _$ProfileBlocStateCopyWithImpl<$Res, _$UserDataLoadedImpl>
+    implements _$$UserDataLoadedImplCopyWith<$Res> {
+  __$$UserDataLoadedImplCopyWithImpl(
+      _$UserDataLoadedImpl _value, $Res Function(_$UserDataLoadedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$UserDataLoadedImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserDbModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UserDataLoadedImpl implements _UserDataLoaded {
+  const _$UserDataLoadedImpl(this.user);
+
+  @override
+  final UserDbModel user;
+
+  @override
+  String toString() {
+    return 'ProfileBlocState.userDataLoaded(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserDataLoadedImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserDataLoadedImplCopyWith<_$UserDataLoadedImpl> get copyWith =>
+      __$$UserDataLoadedImplCopyWithImpl<_$UserDataLoadedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
+    required TResult Function(int points) pointUpdated,
+    required TResult Function(String message) error,
+  }) {
+    return userDataLoaded(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
+    TResult? Function(int points)? pointUpdated,
+    TResult? Function(String message)? error,
+  }) {
+    return userDataLoaded?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
+    TResult Function(int points)? pointUpdated,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (userDataLoaded != null) {
+      return userDataLoaded(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
+    required TResult Function(_PointUpdated value) pointUpdated,
+    required TResult Function(_Error value) error,
+  }) {
+    return userDataLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
+    TResult? Function(_PointUpdated value)? pointUpdated,
+    TResult? Function(_Error value)? error,
+  }) {
+    return userDataLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
+    TResult Function(_PointUpdated value)? pointUpdated,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (userDataLoaded != null) {
+      return userDataLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserDataLoaded implements ProfileBlocState {
+  const factory _UserDataLoaded(final UserDbModel user) = _$UserDataLoadedImpl;
+
+  UserDbModel get user;
+  @JsonKey(ignore: true)
+  _$$UserDataLoadedImplCopyWith<_$UserDataLoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -801,6 +1109,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
     required TResult Function(int points) pointUpdated,
     required TResult Function(String message) error,
   }) {
@@ -812,6 +1121,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
     TResult? Function(int points)? pointUpdated,
     TResult? Function(String message)? error,
   }) {
@@ -823,6 +1133,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
     TResult Function(int points)? pointUpdated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -838,6 +1149,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
     required TResult Function(_PointUpdated value) pointUpdated,
     required TResult Function(_Error value) error,
   }) {
@@ -849,6 +1161,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
     TResult? Function(_PointUpdated value)? pointUpdated,
     TResult? Function(_Error value)? error,
   }) {
@@ -860,6 +1173,7 @@ class _$PointUpdatedImpl implements _PointUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
     TResult Function(_PointUpdated value)? pointUpdated,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -946,6 +1260,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(UserDbModel user) userDataLoaded,
     required TResult Function(int points) pointUpdated,
     required TResult Function(String message) error,
   }) {
@@ -957,6 +1272,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(UserDbModel user)? userDataLoaded,
     TResult? Function(int points)? pointUpdated,
     TResult? Function(String message)? error,
   }) {
@@ -968,6 +1284,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(UserDbModel user)? userDataLoaded,
     TResult Function(int points)? pointUpdated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -983,6 +1300,7 @@ class _$ErrorImpl implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_UserDataLoaded value) userDataLoaded,
     required TResult Function(_PointUpdated value) pointUpdated,
     required TResult Function(_Error value) error,
   }) {
@@ -994,6 +1312,7 @@ class _$ErrorImpl implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_UserDataLoaded value)? userDataLoaded,
     TResult? Function(_PointUpdated value)? pointUpdated,
     TResult? Function(_Error value)? error,
   }) {
@@ -1005,6 +1324,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_UserDataLoaded value)? userDataLoaded,
     TResult Function(_PointUpdated value)? pointUpdated,
     TResult Function(_Error value)? error,
     required TResult orElse(),

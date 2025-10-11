@@ -9,50 +9,76 @@ part 'preferance_state.dart';
 part 'preferance_bloc.freezed.dart';
 
 class PreferanceBloc extends Bloc<PreferanceEvent, PreferanceState> {
-  final PreferanceRepository repository;
-  PreferanceBloc({required this.repository}) : super(PreferanceState.initial()) {
-    
-   on<_FetchAllPreferances>((event, emit) async {
-      emit(const PreferanceState.loading());
-      try {
-        final preferances = await repository.getAllPreferances();
-        emit(PreferanceState.loaded(preferances));
-      } catch (e) {
-        emit(PreferanceState.error(e.toString()));
-      }
-    });
+  final PreferanceRepository preferanceRepository;
 
-    on<_AddPreferance>((event, emit) async {
-      emit(const PreferanceState.loading());
-      try {
-        await repository.addPreferance(event.preferance);
-        final preferances = await repository.getAllPreferances();
-        emit(PreferanceState.loaded(preferances));
-      } catch (e) {
-        emit(PreferanceState.error(e.toString()));
-      }
-    });
+  PreferanceBloc({required this.preferanceRepository})
+      : super(const PreferanceState.initial()) {
+    // Register the event handlers for each event type.
+    on<_FetchAllPreferances>(_onFetchAllPreferances);
+    on<_AddPreferance>(_onAddPreferance);
+    on<_UpdatePreferance>(_onUpdatePreferance);
+    on<_DeletePreferance>(_onDeletePreferance);
+  }
 
-    on<_UpdatePreferance>((event, emit) async {
-      emit(const PreferanceState.loading());
-      try {
-        await repository.updatePreferance(event.id, event.percentage, event.tasksCompleted);
-        final preferances = await repository.getAllPreferances();
-        emit(PreferanceState.loaded(preferances));
-      } catch (e) {
-        emit(PreferanceState.error(e.toString()));
-      }
-    });
+  /// Handles fetching all preferences from the local repository.
+  Future<void> _onFetchAllPreferances(
+    _FetchAllPreferances event,
+    Emitter<PreferanceState> emit,
+  ) async {
+    emit(const PreferanceState.loading());
+    try {
+      // Using the method name from your repository `getAllPreferances`
+      final preferances = await preferanceRepository.getAllPreferances();
+      emit(PreferanceState.loaded(preferances: preferances));
+    } catch (e) {
+      emit(PreferanceState.error(message: e.toString()));
+    }
+  }
 
-    on<_DeletePreferance>((event, emit) async {
-      emit(const PreferanceState.loading());
-      try {
-        await repository.deletePreferance(event.id);
-        final preferances = await repository.getAllPreferances();
-        emit(PreferanceState.loaded(preferances));
-      } catch (e) {
-        emit(PreferanceState.error(e.toString()));
-      }
-    });
+  /// Handles adding a new preference and then refreshing the list.
+  Future<void> _onAddPreferance(
+    _AddPreferance event,
+    Emitter<PreferanceState> emit,
+  ) async {
+    emit(const PreferanceState.loading());
+    try {
+      await preferanceRepository.addPreferance(event.preferance);
+      final preferances = await preferanceRepository.getAllPreferances();
+      emit(PreferanceState.loaded(preferances: preferances));
+    } catch (e) {
+      emit(PreferanceState.error(message: e.toString()));
+    }
+  }
+
+  /// Handles updating an existing preference and then refreshing the list.
+  Future<void> _onUpdatePreferance(
+    _UpdatePreferance event,
+    Emitter<PreferanceState> emit,
+  ) async {
+    emit(const PreferanceState.loading());
+    try {
+      await preferanceRepository.updatePreferance(
+          event.id, event.percentage, event.tasksCompleted);
+      final preferances = await preferanceRepository.getAllPreferances();
+      emit(PreferanceState.loaded(preferances: preferances));
+    } catch (e) {
+      emit(PreferanceState.error(message: e.toString()));
+    }
+  }
+
+  /// Handles deleting a preference and then refreshing the list.
+  Future<void> _onDeletePreferance(
+    _DeletePreferance event,
+    Emitter<PreferanceState> emit,
+  ) async {
+    emit(const PreferanceState.loading());
+    try {
+      await preferanceRepository.deletePreferance(event.id);
+      final preferances = await preferanceRepository.getAllPreferances();
+      emit(PreferanceState.loaded(preferances: preferances));
+    } catch (e) {
+      emit(PreferanceState.error(message: e.toString()));
+    }
   }
 }
+

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
 
 import '../../../data/model/user_data/user_model.dart';
 

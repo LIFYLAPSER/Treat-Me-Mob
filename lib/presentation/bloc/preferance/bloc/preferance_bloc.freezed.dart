@@ -1014,7 +1014,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
     Object? preferances = null,
   }) {
     return _then(_$LoadedImpl(
-      null == preferances
+      preferances: null == preferances
           ? _value._preferances
           : preferances // ignore: cast_nullable_to_non_nullable
               as List<PreferanceModel>,
@@ -1025,7 +1025,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(final List<PreferanceModel> preferances)
+  const _$LoadedImpl({required final List<PreferanceModel> preferances})
       : _preferances = preferances;
 
   final List<PreferanceModel> _preferances;
@@ -1136,7 +1136,8 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements PreferanceState {
-  const factory _Loaded(final List<PreferanceModel> preferances) = _$LoadedImpl;
+  const factory _Loaded({required final List<PreferanceModel> preferances}) =
+      _$LoadedImpl;
 
   List<PreferanceModel> get preferances;
   @JsonKey(ignore: true)
@@ -1167,7 +1168,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
     Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1178,7 +1179,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.message);
+  const _$ErrorImpl({required this.message});
 
   @override
   final String message;
@@ -1281,7 +1282,7 @@ class _$ErrorImpl implements _Error {
 }
 
 abstract class _Error implements PreferanceState {
-  const factory _Error(final String message) = _$ErrorImpl;
+  const factory _Error({required final String message}) = _$ErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:treat_me/data/model/user_preferance_list_model/preferance_model.dart';
 import 'package:treat_me/domain/repositories/preferance_repo/preferance_repository.dart';
@@ -21,6 +22,7 @@ class HivePreferanceRepo implements PreferanceRepository{
   @override
   Future<List<PreferanceModel>> getAllPreferances() async{
     await Future.delayed(Duration(seconds: 1)); // Simulate a delay
+    debugPrint('preferances in box: ${_box.values.length}');
     return _box.values.toList(); 
   }
 

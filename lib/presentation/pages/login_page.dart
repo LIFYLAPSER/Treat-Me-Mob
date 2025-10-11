@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
                   clipper: LoginClipper(),
                   child: Container(
                     // Reduced height to prevent layout issues on smaller screens
-                    height: 350,
+                    height: 650,
                     width: double.infinity,
                     color: Colors.blue.shade700,
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),

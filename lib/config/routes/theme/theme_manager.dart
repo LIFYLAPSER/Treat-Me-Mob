@@ -45,7 +45,7 @@ class ThemeManager extends ChangeNotifier {
 
   init() async {
     sharedPrefs = await SharedPreferences.getInstance();
-    isSystemThemeMode = sharedPrefs.getBool("isSystemMode") ?? false;
+    isSystemThemeMode = sharedPrefs.getBool("isSystemMode") ?? true;
     isDark = sharedPrefs.getBool("isDark") ?? false;
     themeMode = isSystemThemeMode
         ? ThemeMode.system

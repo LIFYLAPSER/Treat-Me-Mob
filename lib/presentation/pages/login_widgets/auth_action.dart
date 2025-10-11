@@ -92,7 +92,6 @@ class _AuthActionPanelState extends State<AuthActionPanel> {
           height: 50,
           child: ElevatedButton(
             onPressed: () {
-              // ✅ CORRECTLY DISPATCH THE SIGN IN EVENT
               context.read<AuthBloc>().add(
                     AuthBlocEvent.signInRequested(
                       email: _loginEmailController.text.trim(),
@@ -125,7 +124,6 @@ class _AuthActionPanelState extends State<AuthActionPanel> {
           height: 50,
           child: ElevatedButton(
             onPressed: () {
-              // ✅ CORRECTLY DISPATCH THE SIGN UP EVENT
               context.read<AuthBloc>().add(
                     AuthBlocEvent.signUpRequested(
                       username: _signupUsernameController.text.trim(),
@@ -146,16 +144,4 @@ class _AuthActionPanelState extends State<AuthActionPanel> {
   }
 }
 
-// Dummy LoginClipper for completeness
-class LoginClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    return Path()
-      ..lineTo(0, size.height * 0.8)
-      ..quadraticBezierTo(size.width / 2, size.height, size.width, size.height * 0.8)
-      ..lineTo(size.width, 0)
-      ..close();
-  }
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
+
